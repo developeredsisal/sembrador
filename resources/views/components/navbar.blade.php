@@ -19,6 +19,15 @@
         </li>
 
         <li>
+            <a href="#">
+                <span class="icon">
+                    <ion-icon name="cloud-upload-outline"></ion-icon>
+                </span>
+                <span class="title">Recursos</span>
+            </a>
+        </li>
+
+        <li>
             <a href="{{ route('cerrar-sesion') }}">
                 <span class="icon">
                     <ion-icon name="log-out-outline"></ion-icon>
