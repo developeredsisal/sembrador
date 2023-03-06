@@ -19,11 +19,20 @@
         </li>
 
         <li>
-            <a href="#">
+            <a href="{{ route('lectura') }}">
                 <span class="icon">
                     <ion-icon name="cloud-upload-outline"></ion-icon>
                 </span>
-                <span class="title">Recursos</span>
+                <span class="title">Lecturas</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="{{ route('actividad') }}">
+                <span class="icon">
+                    <ion-icon name="book-outline"></ion-icon>
+                </span>
+                <span class="title">Actividades</span>
             </a>
         </li>
 

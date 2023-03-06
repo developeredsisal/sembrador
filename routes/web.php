@@ -5,12 +5,13 @@ use App\Http\Controllers\LibroController;
 use Illuminate\Support\Facades\Route;
 
 
-// Route::group(['middleware' => 'App\Http\Middleware\AuthAdmin'], function () {
-//     Route::get('/subir-recurso', [LibroController::class, 'create'])->name('subir-recurso');
+Route::group(['middleware' => 'App\Http\Middleware\AuthAdmin'], function () {
+    Route::view('/lectura', 'lectura')->name('lectura');
+    Route::view('/actividad', 'actividad')->name('actividad');
 //     Route::get('/actividades', [LibroController::class, 'actividades'])->name('actividades');
 
 //     Route::post('/registrar-recurso', [LibroController::class, 'registrar'])->name('registrar-recurso');
-// });
+});
 
 Route::middleware(['auth'])->group(function () {
     Route::view('/inicio', 'inicio')->name('inicio');
