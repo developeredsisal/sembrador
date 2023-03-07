@@ -6,7 +6,7 @@
 }
 
 body {
-    background-image: linear-gradient(25deg, #003837, #0c6e50, #13aa69, #13ea82);
+    background-image: var(--background-login);
 }
 
 .login {
@@ -83,12 +83,12 @@ label {
 }
 
 .form input:focus {
-    box-shadow: 0 0 5px 0 rgb(61, 139, 107);
+    box-shadow: 0 0 5px 0 rgb(61, 108, 139);
 }
 
 .form button {
     outline: 0;
-    background-image: linear-gradient(25deg, #003837, #0c6e50, #13aa69, #13ea82);
+    background-image: var(--background-login);
     width: 100%;
     border: 0;
     margin-top: 20px;
@@ -96,15 +96,13 @@ label {
     padding: 15px;
     color: #ffffff;
     font-size: 15px;
-    -webkit-transition: all 0.3 ease;
-    transition: all 0.4s ease-in-out;
     cursor: pointer;
 }
 
 .form button:hover,
 .form button:active,
 .form button:focus {
-    background: rgb(37, 131, 76);
+    background: rgb(37, 81, 131);
     color: #ffffff;
 }
 
@@ -120,7 +118,8 @@ label {
     text-decoration: none;
 }
 
-.form-control.is-invalid, .was-validated .form-control:invalid {
+.form-control.is-invalid,
+.was-validated .form-control:invalid {
     background-image: none;
 }
 

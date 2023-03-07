@@ -78,7 +78,7 @@ input[type="text"] {
     border-radius: 9px;
     border: 0;
     padding: 18px 43px;
-    background-color: #7689bb;
+    background-color: var(--primary-color);
     color: #fff;
     font-size: 16px;
     font-weight: 700;
@@ -97,7 +97,7 @@ input[type="text"] {
 }
 
 .boton:hover {
-    background-color: #526eb6;
+    background-color: var(--secondary-color);
 }
 
 .custom-file-upload {

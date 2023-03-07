@@ -19,11 +19,3 @@ closeBtn.addEventListener("click", function () {
     // Cerrar el modal
     modal.style.display = "none";
 });
-
-// Agregar un evento de clic a cualquier parte fuera del modal para cerrarlo
-window.addEventListener("click", function (event) {
-    // Si el usuario hace clic fuera del modal, cerrarlo
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-});

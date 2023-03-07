@@ -2,16 +2,9 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Sembrador Escolar - Inicio sesión</title>
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <x-head />
     <link rel="stylesheet" href="{{ asset('css/login.css') }}">
+    <title>Sembrador Escolar - Inicio sesión</title>
 </head>
 
 <body>
@@ -24,14 +17,12 @@
                     <label for="email">{{ __('Correo electrónico') }}</label>
 
                     <div>
-                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
-                            name="email" value="{{ old('email') }}" required autocomplete="email" autofocus
-                            placeholder="nombre@correo.com">
+                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="nombre@correo.com">
 
                         @error('email')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
                         @enderror
                     </div>
                 </div>
@@ -40,17 +31,14 @@
 
                     <div>
                         <div class="password-input-container">
-                            <input id="password" type="password"
-                                class="form-control @error('password') is-invalid @enderror" name="password" required
-                                autocomplete="current-password" placeholder="Escribe tu contraseña">
-                            <img id="eye-icon" src="{{ asset('images/cerrado.svg') }}"
-                                onclick="togglePasswordVisibility()" />
+                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="Escribe tu contraseña">
+                            <img id="eye-icon" src="{{ asset('images/cerrado.svg') }}" onclick="togglePasswordVisibility()" />
                         </div>
 
                         @error('password')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
                         @enderror
                     </div>
                 </div>

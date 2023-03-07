@@ -1,0 +1,86 @@
+.acciones-div {
+    display: inline-block;
+}
+.acciones-form {
+    display: inline-block;
+}
+
+.btn-editar {
+    background-color: #35dc67;
+    color: #fff;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out; 
+}
+
+.btn-editrar:hover {
+    background-color: #29af51;
+}
+
+.btn-eliminar {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.btn-eliminar:hover {
+    background-color: #c82333;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+th {
+    background-color: #f2f2f2;
+    color: #666;
+    font-weight: bold;
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+img.imagen {
+    max-width: 100px;
+    height: auto;
+}
+a.btn {
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 4px;
+    background-color: #4caf50;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+}
+form.delete-form {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+button.btn-delete {
+    display: inline-block;
+    margin: 0;
+    padding: 8px 16px;
+    border-radius: 4px;
+    background-color: #f44336;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+}
+button.btn-delete:hover {
+    background-color: #d32f2f;
+}
