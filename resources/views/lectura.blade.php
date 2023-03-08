@@ -30,7 +30,7 @@
                         <td>{{ $c++ }}</td>
                         <td data-label="Nombre">{{ $l->nombre }}</td>
                         <td data-label="Tiempo">{{ $l->tiempo }} min</td>
-                        <td data-label="Grado">{{ $l->grado }}</td>
+                        <td data-label="Grado">{{ $l->grado_nombre }}</td>
                         <td data-label="Imagen"><img class="imagen" src="{{ URL::to('/') . '/lecturas/' . $l->id . '/' . $l->imagen }}"></td>
                         <td data-label="Acciones">
                             <div>

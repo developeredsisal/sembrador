@@ -25,15 +25,30 @@
                         </div>
                         <div class="col-md-8 col-12">
                             <div class="form-group">
-                                <label for="nombre">Nombre:</label>
+                                <label for="nombre" class="col-form-label">{{ __('Nombre') }}</label>
                                 <input type="text" name="nombre" id="nombre" class="form-control" value="{{ $lectura->nombre }}" required>
                             </div>
                             <div class="form-group">
-                                <label for="tiempo">Tiempo:</label>
+                                <label for="tiempo" class="col-form-label">{{ __('Tiempo') }}</label>
                                 <input type="number" name="tiempo" id="tiempo" class="form-control" value="{{ $lectura->tiempo }}" required>
                             </div>
-                            <div class="form-group py-3">
-                                <label for="imagen">Imagen:</label>
+                            <div class="form-group">
+                                <label for="grado" class="col-form-label">{{ __('Grado') }}</label>
+
+                                <select id="grado" class="form-control @error('grado') is-invalid @enderror" name="grado" required>
+                                    @foreach ($grados as $grado)
+                                    <option value="{{ $grado->id }}" {{ $grado->id == $lectura->grado_id ? 'selected' : '' }}>{{ $grado->nombre }}</option>
+                                    @endforeach
+                                </select>
+
+                                @error('grado')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <label for="imagen" class="col-form-label">{{ __('Imagen') }}</label>
                                 <input type="file" name="imagen" id="imagen" class="form-control">
                             </div>
                             <div class="py-2">
