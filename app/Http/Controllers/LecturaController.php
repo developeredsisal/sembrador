@@ -34,7 +34,6 @@ class LecturaController extends Controller
         $image->move(public_path('lecturas/' . $lectura->id), $image->getClientOriginalName());
 
         try {
-            // Notificaciones
             return redirect()->route('lectura')->with('success', 'La lectura se ha creado exitosamente.');
         } catch (\Exception $e) {
             return redirect()->route('lectura')->with('error', 'Ha habido un error al crear la lectura: ' . $e->getMessage());
@@ -73,10 +72,8 @@ class LecturaController extends Controller
         $lectura->tiempo = $request->input('tiempo');
 
         if ($request->hasFile('imagen')) {
-            // Eliminar la imagen anterior si existe
             Storage::delete($lectura->imagen);
 
-            // Subir la nueva imagen y guardar la ruta en la base de datos
             $path = $request->file('imagen')->store('public/lecturas');
             $lectura->imagen = $path;
         }
@@ -84,7 +81,6 @@ class LecturaController extends Controller
         $lectura->save();
 
         try {
-            // código para actualizar la lectura
             return redirect()->route('lectura')->with('success', 'La lectura se ha actualizado correctamente.');
         } catch (\Exception $e) {
             return redirect()->route('lectura')->with('error', 'Ha habido un error al actualizar la lectura: ' . $e->getMessage());

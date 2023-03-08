@@ -13,10 +13,9 @@ Route::group(['middleware' => 'App\Http\Middleware\AuthAdmin'], function () {
     Route::post('/registrar-lectura', [LecturaController::class, 'registrar'])->name('registrar-lectura');
 
     Route::get('lectura/{id}/editar', [LecturaController::class, 'editarLectura'])->name('editar-lectura');
-    Route::put('lectura/{id}/actualizar', [LecturaController::class, 'actualizarLectura'])->name('actualizar-lectura');    
+    Route::put('lectura/{id}/actualizar', [LecturaController::class, 'actualizarLectura'])->name('actualizar-lectura');
 
     Route::view('/actividad', 'actividad')->name('actividad');
-
 });
 
 Route::middleware(['auth'])->group(function () {
@@ -24,7 +23,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/lectura', [LecturaController::class, 'lecturas'])->name('lectura');
 
     Route::get('/cerrar-sesion', [LoginController::class, 'logout'])->name('cerrar-sesion');
-
 });
 
 Route::middleware(['guest'])->group(function () {

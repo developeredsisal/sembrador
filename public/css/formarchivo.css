@@ -78,7 +78,6 @@ input[type="text"] {
     border-radius: 9px;
     border: 0;
     padding: 18px 43px;
-    background-color: var(--primary-color);
     color: #fff;
     font-size: 16px;
     font-weight: 700;
@@ -94,10 +93,6 @@ input[type="text"] {
 .btn-upload {
     margin-top: 20px;
     text-align: center;
-}
-
-.boton:hover {
-    background-color: var(--secondary-color);
 }
 
 .custom-file-upload {

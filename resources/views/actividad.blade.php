@@ -12,7 +12,7 @@
     <div class="main">
         <x-appbar />
         <!-- Botón flotante -->
-        <button id="btn-float" class="btn-float">
+        <button id="btn-float" class="btn-float btn btn-primary">
             <span class="icon">
                 <i class="material-icons">add</i>
             </span>

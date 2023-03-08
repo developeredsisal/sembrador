@@ -29,7 +29,7 @@
                     <tr>
                         <td>{{ $c++ }}</td>
                         <td data-label="Nombre">{{ $l->nombre }}</td>
-                        <td data-label="Tiempo">{{ $l->tiempo }}</td>
+                        <td data-label="Tiempo">{{ $l->tiempo }} min</td>
                         <td data-label="Grado">{{ $l->grado }}</td>
                         <td data-label="Imagen"><img class="imagen" src="{{ URL::to('/') . '/lecturas/' . $l->id . '/' . $l->imagen }}"></td>
                         <td data-label="Acciones">
@@ -37,14 +37,15 @@
                                 <form action="{{ route('editar-lectura', ['id' => $l->id]) }}" method="GET">
                                     @csrf
                                     @method('UPDATE')
-                                    <button type="submit" class="btn-editar">Editar</button>
+                                    <button type="submit" class="btn btn-warning btn-editar">Editar</button>
                                 </form>
                                 <form action="{{ route('eliminar-lectura', ['id' => $l->id]) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn-eliminar">Eliminar</button>
+                                    <button type="submit" class="btn btn-danger btn-eliminar">Eliminar</button>
                                 </form>
                             </div>
+
                         </td>
                     </tr>
                     @endforeach
@@ -69,7 +70,7 @@
         @endif
 
         <!-- Botón flotante -->
-        <button id="btn-float" class="btn-float">
+        <button id="btn-float" class="btn btn-primary btn-float">
             <span class="icon">
                 <i class="material-icons">add</i>
             </span>

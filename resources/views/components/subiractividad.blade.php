@@ -23,7 +23,7 @@
     </select>
 
     <div class="btn-upload">
-        <button class="boton" type="submit">Subir actividad</button>
+        <button class="boton btn btn-primary" type="submit">Subir actividad</button>
     </div>
 </form>
 

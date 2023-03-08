@@ -6,13 +6,11 @@
     width: 65px;
     height: 65px;
     border-radius: 50%;
-    background-color: var(--primary-color);
     color: #fff;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     border: none;
     outline: none;
     cursor: pointer;
-    transition: all 0.3s ease-in-out;
 }
 
 .notificacion {
@@ -21,10 +19,6 @@
     right: -858px;
     width: 1221px;
     height: 65px;
-}
-
-.btn-float:hover {
-    background-color: var(--secondary-color);
 }
 
 .icon {

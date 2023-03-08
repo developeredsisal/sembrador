@@ -19,7 +19,7 @@
     </select>
 
     <div class="btn-upload">
-        <button class="boton" type="submit">Crear lectura</button>
+        <button class="boton btn btn-primary" type="submit">Crear lectura</button>
     </div>
 </form>
 

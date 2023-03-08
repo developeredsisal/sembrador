@@ -27,9 +27,8 @@ body {
     overflow-x: hidden;
 }
 
-.container {
-    position: relative;
-    width: 100%;
+.container-fluid {
+    padding: 70px 4px 20px 0px;
 }
 
 .navigation {
@@ -143,10 +142,15 @@ body {
     justify-content: space-between;
     align-items: center;
     background-color: var(--white);
-    padding: 10px;
+    padding: 10px 14px 0 2px;
     transition: 0.5s;
-    z-index: 999;
-  }
+    z-index: 1;
+}
+
+.topbar.active {
+    width: calc(100% - 70px);
+    left: 70px;
+}
 
 .toggle {
     position: relative;
@@ -215,7 +219,11 @@ body {
         width: 100%;
         left: 0;
     }
-    .main.active {
+    .topbar {
+        width: 100%;
+        left: 0;
+    }
+    .topbar.active {
         left: 80px;
     }
 }
@@ -233,8 +241,5 @@ body {
     .main {
         width: 100%;
         left: 0;
-    }
-    .main.active {
-        left: 80px;
     }
 }

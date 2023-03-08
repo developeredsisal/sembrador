@@ -1,3 +1,9 @@
+.table-responsive {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 70px 20px 20px 20px;
+}
+
 .acciones-div {
     display: inline-block;
 }
@@ -6,27 +12,27 @@
 }
 
 .btn-editar {
-    background-color: #35dc67;
     color: #fff;
     border: none;
     padding: 6px 12px;
     border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.2s ease-in-out; 
+    display: block;
+    display: block;
 }
 
-.btn-editrar:hover {
-    background-color: #29af51;
+.btn-editar:hover {
+    color: #fff;
 }
 
 .btn-eliminar {
-    background-color: #dc3545;
     color: #fff;
     border: none;
     padding: 6px 12px;
     border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.2s ease-in-out;
+    display: block;
+    margin-top: 8px;
 }
 
 .btn-eliminar:hover {
