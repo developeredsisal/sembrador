@@ -5,9 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Lectura;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Storage;
-use File;
-use ZipArchive;
 
 class LecturaController extends Controller
 {
@@ -19,6 +16,13 @@ class LecturaController extends Controller
 
     public function registrar(Request $request)
     {
+        $request->validate([
+            'nombre' => 'required|max:255',
+            'tiempo' => 'required|integer',
+            'grado' => 'required|max:32',
+            'imagen' => 'required|image|max:1024'
+        ]);
+
         $lectura = new Lectura();
         $nombre_lectura = $request->input('nombre');
         $lectura->nombre = $nombre_lectura;
@@ -104,5 +108,13 @@ class LecturaController extends Controller
             ->select('lectura.id AS id', 'lectura.nombre AS nombre', 'lectura.tiempo AS tiempo', 'lectura.imagen AS imagen', 'grado.id AS grado_id', 'grado.nombre AS grado_nombre')
             ->orderBy('id')->get();
         return view('lectura', ['lecturas' => $lecturas]);
+    }
+
+    public function todas()
+    {
+        $lecturas = DB::table('lectura')->join('grado', 'lectura.grado_id', '=', 'grado.id')
+            ->select('lectura.id AS id', 'lectura.nombre AS nombre', 'lectura.tiempo AS tiempo', 'lectura.imagen AS imagen', 'grado.id AS grado_id', 'grado.nombre AS grado_nombre')
+            ->orderBy('id')->get();
+        return view('inicio', ['lecturas' => $lecturas]);
     }
 }

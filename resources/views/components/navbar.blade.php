@@ -3,7 +3,7 @@
         <li>
             <a href="{{ route('inicio') }}">
                 <span class="icon">
-                    <ion-icon name="logo-github"></ion-icon>
+                    <ion-icon name="logo-python"></ion-icon>
                 </span>
                 <span id="ocultar" class="title">Sembrador Escolar</span>
             </a>

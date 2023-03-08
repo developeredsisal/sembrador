@@ -19,7 +19,7 @@ Route::group(['middleware' => 'App\Http\Middleware\AuthAdmin'], function () {
 });
 
 Route::middleware(['auth'])->group(function () {
-    Route::view('/inicio', 'inicio')->name('inicio');
+    Route::get('/inicio', [LecturaController::class, 'todas'])->name('inicio');
     Route::get('/lectura', [LecturaController::class, 'lecturas'])->name('lectura');
 
     Route::get('/cerrar-sesion', [LoginController::class, 'logout'])->name('cerrar-sesion');

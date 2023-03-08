@@ -5,11 +5,6 @@
     padding: 70px 4px 20px 0px;
 }
 
-.card--1 .card__img,
-.card--1 .card__img--hover {
-    background-image: url("https://images.pexels.com/photos/45202/brownie-dessert-cake-sweet-45202.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260");
-}
-
 .card__clock {
     width: 15px;
     vertical-align: middle;
@@ -118,12 +113,12 @@
     opacity: 1;
 }
 
-/* Media queries para hacer la carta responsive */
 @media screen and (max-width: 600px) {
     .card {
         width: 329px;
         height: 365px;
         margin: 0 20px 20px;
+        border-radius: 15px;
     }
 }
 
@@ -132,6 +127,7 @@
         width: 274px;
         height: 301px;
         margin: 15px;
+        border-radius: 15px;
     }
 }
 
@@ -140,6 +136,7 @@
         width: 226px;
         height: 287px;
         margin: 6px;
+        border-radius: 15px;
     }
 }
 
@@ -148,5 +145,6 @@
         width: 272px;
         height: 300px;
         margin: 13px;
+        border-radius: 15px;
     }
 }

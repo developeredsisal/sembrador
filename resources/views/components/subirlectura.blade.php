@@ -1,6 +1,6 @@
 <form method="POST" action="{{ route('registrar-lectura') }}" class="form" enctype="multipart/form-data">
     @csrf
-    <input type="text" name="nombre" class="form-control" id="file-name-input" placeholder="Nombre de la lectura" required>
+    <input type="text" name="nombre" class="form-control" id="file-name-input" placeholder="Nombre de la lectura" required autofocus>
     <input type="text" name="tiempo" class="form-control" id="file-name-input" placeholder="Tiempo: 15" required>
     <label for="image-upload-input" class="file-upload">
         <p>Arrastra y suelta tu imagen</p>
