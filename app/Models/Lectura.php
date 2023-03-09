@@ -7,11 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Lectura extends Model
 {
-    use HasFactory;
-    protected $table = "lectura";
+    protected $table = 'lectura';
 
     public function actividades()
     {
-        return $this->hasMany('App\Models\Actividad');
+        return $this->hasMany(Actividad::class);
     }
 }
+

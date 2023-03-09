@@ -7,10 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Actividad extends Model
 {
-    use HasFactory;
+    protected $table = 'actividad';
 
     public function lectura()
     {
-        return $this->belongsTo('App\Models\Lectura');
+        return $this->belongsTo(Lectura::class);
     }
 }
