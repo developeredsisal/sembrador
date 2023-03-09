@@ -8,10 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Actividad extends Model
 {
     use HasFactory;
-    protected $table = "actividad";
-    protected $fillable = [
-        'nombre',
-        'archivo'
-    ];
-    protected $hidden = ['id'];
+
+    public function lectura()
+    {
+        return $this->belongsTo('App\Models\Lectura');
+    }
 }

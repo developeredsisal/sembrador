@@ -9,4 +9,9 @@ class Lectura extends Model
 {
     use HasFactory;
     protected $table = "lectura";
+
+    public function actividades()
+    {
+        return $this->hasMany('App\Models\Actividad');
+    }
 }
