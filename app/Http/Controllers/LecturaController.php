@@ -110,7 +110,7 @@ class LecturaController extends Controller
         return view('lectura', ['lecturas' => $lecturas]);
     }
 
-    public function todas()
+    public function todasLecturas()
     {
         $lecturas = DB::table('lectura')->join('grado', 'lectura.grado_id', '=', 'grado.id')
             ->select('lectura.id AS id', 'lectura.nombre AS nombre', 'lectura.tiempo AS tiempo', 'lectura.imagen AS imagen', 'grado.id AS grado_id', 'grado.nombre AS grado_nombre')

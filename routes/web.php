@@ -14,12 +14,10 @@ Route::group(['middleware' => 'App\Http\Middleware\AuthAdmin'], function () {
 
     Route::get('lectura/{id}/editar', [LecturaController::class, 'editarLectura'])->name('editar-lectura');
     Route::put('lectura/{id}/actualizar', [LecturaController::class, 'actualizarLectura'])->name('actualizar-lectura');
-
-    Route::view('/actividad', 'actividad')->name('actividad');
 });
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/inicio', [LecturaController::class, 'todas'])->name('inicio');
+    Route::get('/inicio', [LecturaController::class, 'todasLecturas'])->name('inicio');
     Route::get('/lectura', [LecturaController::class, 'lecturas'])->name('lectura');
 
     Route::get('/cerrar-sesion', [LoginController::class, 'logout'])->name('cerrar-sesion');

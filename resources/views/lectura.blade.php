@@ -11,6 +11,13 @@
 
     <div class="main">
         <x-appbar />
+        
+        <div class="container-fluid">
+            <div class="card-header">
+                <h2 class="role">Lecturas</h2>
+            </div>
+        </div>
+
         <div class="table-responsive">
             <table class="table table-striped">
                 <thead>
@@ -33,19 +40,31 @@
                         <td data-label="Grado">{{ $l->grado_nombre }}</td>
                         <td data-label="Imagen"><img class="imagen" src="{{ URL::to('/') . '/lecturas/' . $l->id . '/' . $l->imagen }}"></td>
                         <td data-label="Acciones">
-                            <div>
+                            <div class="btn-group me-2" role="group">
                                 <form action="{{ route('editar-lectura', ['id' => $l->id]) }}" method="GET">
                                     @csrf
                                     @method('UPDATE')
-                                    <button type="submit" class="btn btn-warning btn-editar">Editar</button>
-                                </form>
-                                <form action="{{ route('eliminar-lectura', ['id' => $l->id]) }}" method="POST">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-danger btn-eliminar">Eliminar</button>
+                                    <button type="submit" class="btn btn-warning" data-toggle="tooltip" title="Editar">
+                                        <i class="material-icons">border_color</i>
+                                    </button>
                                 </form>
                             </div>
-
+                            <div class="btn-group me-2 my-2" role="group">
+                                <form>
+                                    <button type="submit" class="btn btn-primary" data-toggle="tooltip" title="Agregar actividad">
+                                        <i class="material-icons">bookmark_add</i>
+                                    </button>
+                                </form>
+                            </div>
+                            <div class="btn-group me-2" role="group">
+                                <form action="{{ route('eliminar-lectura', ['id' => $l->id]) }}" method="POST" onsubmit="return confirm('¿Está seguro de que desea eliminar la lectura?')">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger" data-toggle="tooltip" title="Eliminar">
+                                        <i class="material-icons">delete</i>
+                                    </button>
+                                </form>
+                            </div>
                         </td>
                     </tr>
                     @endforeach
@@ -70,7 +89,7 @@
         @endif
 
         <!-- Botón flotante -->
-        <button id="btn-float" class="btn btn-primary btn-float">
+        <button id="btn-float" class="btn btn-primary btn-float" data-toggle="tooltip" title="Agregar lectura">
             <span class="icon">
                 <i class="material-icons">add</i>
             </span>
@@ -90,6 +109,10 @@
 
     <script src="{{ asset('js/botonflotante.js') }}"></script>
     <script>
+        $(function() {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+
         setTimeout(function() {
             document.querySelector('.alert').classList.add('d-none');
         }, 5000);

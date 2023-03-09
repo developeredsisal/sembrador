@@ -27,15 +27,6 @@
             </a>
         </li>
 
-        <li class="{{ Request::is('actividad') ? 'active' : '' }}">
-            <a href="{{ route('actividad') }}">
-                <span class="icon">
-                    <ion-icon name="book-outline"></ion-icon>
-                </span>
-                <span id="ocultar" class="title">Actividades</span>
-            </a>
-        </li>
-
         <li>
             <a href="{{ route('cerrar-sesion') }}">
                 <span class="icon">

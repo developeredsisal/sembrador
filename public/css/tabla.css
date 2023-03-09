@@ -1,7 +1,6 @@
 .table-responsive {
     display: flex;
     flex-wrap: wrap;
-    padding: 70px 20px 20px 20px;
 }
 
 .acciones-div {
@@ -11,32 +10,10 @@
     display: inline-block;
 }
 
-.btn-editar {
-    color: #fff;
-    border: none;
-    padding: 6px 12px;
-    border-radius: 4px;
-    cursor: pointer;
-    display: block;
-    display: block;
-}
-
-.btn-editar:hover {
-    color: #fff;
-}
-
-.btn-eliminar {
-    color: #fff;
-    border: none;
-    padding: 6px 12px;
-    border-radius: 4px;
-    cursor: pointer;
-    display: block;
-    margin-top: 8px;
-}
-
-.btn-eliminar:hover {
-    background-color: #c82333;
+.btn-warning {
+    --bs-btn-color: #fff;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-active-color: #fff;
 }
 
 table {
@@ -63,14 +40,9 @@ img.imagen {
     height: auto;
 }
 a.btn {
-    display: inline-block;
-    padding: 8px 16px;
-    border-radius: 4px;
-    background-color: #4caf50;
     color: #fff;
-    text-align: center;
-    text-decoration: none;
 }
+
 form.delete-form {
     display: inline-block;
     margin: 0;
