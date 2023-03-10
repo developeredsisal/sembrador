@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Route;
 Route::group(['middleware' => 'App\Http\Middleware\AuthAdmin'], function () {
     Route::get('/lectura', [LecturaController::class, 'create'])->name('lectura');
     Route::get('lectura/{id}/actividad', [ActividadController::class, 'subir'])->name('subir-actividad');
+    Route::get('/lectura/{id}/actividades', [ActividadController::class, 'mostrarActividades'])->name('subir-actividad');
+
 
     Route::get('lectura/{id}/editar', [LecturaController::class, 'editarLectura'])->name('editar-lectura');
 

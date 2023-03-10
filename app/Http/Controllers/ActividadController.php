@@ -56,4 +56,10 @@ class ActividadController extends Controller
             return redirect()->route('subir-actividad', ['id' => $actividad->lectura_id])->with('error', 'Ha habido un error al subir la actividad: ' . $e->getMessage());
         }
     }
+
+    public function mostrarActividades($id) {
+        $lectura = Lectura::findOrFail($id);
+        $actividades = $lectura->actividades;
+        return view('subir-actividad', compact('lectura', 'actividades'));
+    }    
 }
