@@ -5,8 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Actividad;
 use App\Models\Lectura;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 use ZipArchive;
 
 class ActividadController extends Controller
@@ -20,7 +19,7 @@ class ActividadController extends Controller
 
     public function registrarActividad(Request $request, $id)
     {
-        
+
         $actividad = new Actividad();
 
         $actividad->lectura_id = $id;
@@ -57,21 +56,38 @@ class ActividadController extends Controller
         }
     }
 
+    public function editarActividad($id)
+    {
+        $actividad = Actividad::find($id);
+        $lectura = $actividad->lectura;
+        return view('editar-actividad', compact('lectura', 'actividad'));
+    }
+
     public function eliminarActividad($id)
     {
         $actividad = Actividad::find($id);
 
-        if($actividad) {
+        if ($actividad) {
+            $actividad_path = public_path("actividades/{$actividad->id}");
+
+            if (File::exists($actividad_path)) {
+                File::deleteDirectory($actividad_path);
+            }
+
             $actividad->delete();
+
             return redirect()->back()->with('success', 'La actividad se ha eliminado exitosamente.');
         } else {
             return redirect()->back()->with('error', 'No se ha podido eliminar la actividad.');
         }
     }
 
-    public function mostrarActividades($id) {
+
+
+    public function mostrarActividades($id)
+    {
         $lectura = Lectura::findOrFail($id);
         $actividades = $lectura->actividades;
         return view('subir-actividad', compact('lectura', 'actividades'));
-    }    
+    }
 }

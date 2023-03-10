@@ -34,23 +34,28 @@
                         <tr>
                             <td>{{ $c++ }}</td>
                             <td data-label="Nombre">{{ $actividad->nombre }}</td>
-                            <td data-label="Imagen"><img class="imagen" src="{{ URL::to('/') . '/actividades/' . $actividad->id . '/' . $actividad->imagen }}"></td>
+                            <td data-label="Imagen"><img class="imagen"
+                                    src="{{ URL::to('/') . '/actividades/' . $actividad->id . '/' . $actividad->imagen }}">
+                            </td>
                             <td data-label="Acciones">
                                 <div class="btn-group me-2" role="group">
-                                    <form action="" method="GET">
-                                        <!-- @csrf
-                                    @method('UPDATE') -->
+                                    <form
+                                        action="{{ route('editar-actividad', ['lectura_id' => $actividad->lectura_id, 'actividad_id' => $actividad->id]) }}"
+                                        method="GET">
+                                        @csrf
                                         <button type="submit" class="btn btn-warning" data-toggle="tooltip"
                                             title="Editar">
                                             <i class="material-icons">border_color</i>
                                         </button>
                                     </form>
                                 </div>
+
                                 <div class="btn-group me-2" role="group">
-                                    <form action="{{ route('eliminar-actividad', ['id' => $actividad->id]) }}" method="POST"
+                                    <form action="{{ route('eliminar-actividad', ['id' => $actividad->id]) }}"
+                                        method="POST"
                                         onsubmit="return confirm('¿Está seguro de que desea eliminar la actividad?')">
-                                    @csrf
-                                    @method('DELETE')
+                                        @csrf
+                                        @method('DELETE')
                                         <button type="submit" class="btn btn-danger" data-toggle="tooltip"
                                             title="Eliminar">
                                             <i class="material-icons">delete</i>

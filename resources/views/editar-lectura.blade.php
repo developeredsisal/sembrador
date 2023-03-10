@@ -3,7 +3,7 @@
 
 <head>
     <x-head />
-    <title>Sembrador Escolar - Editar Lectura</title>
+    <title>Sembrador Escolar - Editar lectura</title>
 </head>
 
 <body>
@@ -50,12 +50,13 @@
                             <div class="form-group">
                                 <label for="imagen" class="col-form-label">{{ __('Imagen') }}</label>
                                 <input type="file" name="imagen" id="imagen" class="form-control">
+                                <small class="form-text text-muted">Selecciona una nueva imagen para actualizar la imagen actual.</small>
                             </div>
-                            <div class="py-2">
+                            <div class="py-3">
                                 <a class="a" href="{{ route('lectura') }}">
                                     <button type="button" class="btn btn-secondary btn-md">Cancelar</button>
                                 </a>
-                                <button type="submit" class="btn btn-primary">Actualizar</button>
+                                <button type="submit" class="btn btn-primary">Guardar cambios</button>
                             </div>
                         </div>
                     </div>

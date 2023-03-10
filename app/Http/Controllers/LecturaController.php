@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Lectura;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\DB;
 
 class LecturaController extends Controller
@@ -49,10 +50,17 @@ class LecturaController extends Controller
         $lectura = Lectura::find($id);
 
         if ($lectura) {
+            $lectura_path = public_path("lecturas/{$lectura->id}");
+
+            if (File::exists($lectura_path)) {
+                File::deleteDirectory($lectura_path);
+            }
+
             $lectura->delete();
-            return redirect()->back()->with('success', 'La lectura ha sido eliminada exitosamente.');
+
+            return redirect()->back()->with('success', 'La lectura se ha eliminado exitosamente.');
         } else {
-            return redirect()->back()->with('error', 'La lectura no se pudo encontrar.');
+            return redirect()->back()->with('error', 'No se ha podido eliminar la lectura.');
         }
     }
 

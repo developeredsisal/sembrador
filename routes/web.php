@@ -13,6 +13,7 @@ Route::group(['middleware' => 'App\Http\Middleware\AuthAdmin'], function () {
 
 
     Route::get('lectura/{id}/editar', [LecturaController::class, 'editarLectura'])->name('editar-lectura');
+    Route::get('/lecturas/{lectura_id}/actividades/{actividad_id}/editar', [ActividadController::class, 'editarActividad'])->name('editar-actividad');
 
     Route::delete('/lectura/{id}', [LecturaController::class, 'eliminar'])->name('eliminar-lectura');
     Route::delete('/actividad/{id}', [ActividadController::class, 'eliminarActividad'])->name('eliminar-actividad');
