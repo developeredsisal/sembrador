@@ -82,6 +82,10 @@ label {
     font-size: 14px;
 }
 
+input {
+    caret-color: #0093ff;
+}
+
 .form input:focus {
     box-shadow: 0 0 5px 0 rgb(61, 108, 139);
 }

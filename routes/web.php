@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ActividadController;
 use App\Http\Controllers\LecturaController;
 use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
@@ -7,12 +8,15 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware' => 'App\Http\Middleware\AuthAdmin'], function () {
     Route::get('/lectura', [LecturaController::class, 'create'])->name('lectura');
+    Route::get('lectura/{id}/actividad', [ActividadController::class, 'subir'])->name('subir-actividad');
+
+    Route::get('lectura/{id}/editar', [LecturaController::class, 'editarLectura'])->name('editar-lectura');
 
     Route::delete('/lectura/{id}', [LecturaController::class, 'eliminar'])->name('eliminar-lectura');
 
     Route::post('/registrar-lectura', [LecturaController::class, 'registrar'])->name('registrar-lectura');
+    Route::post('/lectura/{id}/actividad/registrar', [ActividadController::class, 'registrarActividad'])->name('registrar-actividad');
 
-    Route::get('lectura/{id}/editar', [LecturaController::class, 'editarLectura'])->name('editar-lectura');
     Route::put('lectura/{id}/actualizar', [LecturaController::class, 'actualizarLectura'])->name('actualizar-lectura');
 });
 

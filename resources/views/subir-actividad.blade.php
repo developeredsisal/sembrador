@@ -14,7 +14,7 @@
 
         <div class="container-fluid">
             <div class="card-header">
-                <h2 class="role">Lecturas</h2>
+                <h2 class="role">Subir actividad para la lectura: "{{ $lectura->nombre }}"</h2>
             </div>
         </div>
 
@@ -24,44 +24,31 @@
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">Nombre</th>
-                        <th scope="col">Tiempo</th>
-                        <th scope="col">Grado</th>
                         <th scope="col">Imagen</th>
                         <th scope="col">Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php $c = 1; ?>
-                    @foreach ($lecturas as $l)
+
                     <tr>
                         <td>{{ $c++ }}</td>
-                        <td data-label="Nombre">{{ $l->nombre }}</td>
-                        <td data-label="Tiempo">{{ $l->tiempo }} min</td>
-                        <td data-label="Grado">{{ $l->grado_nombre }}</td>
-                        <td data-label="Imagen"><img class="imagen" src="{{ URL::to('/') . '/lecturas/' . $l->id . '/' . $l->imagen }}"></td>
+                        <td data-label="Nombre"></td>
+                        <td data-label="Imagen"><img class="imagen" src=""></td>
                         <td data-label="Acciones">
                             <div class="btn-group me-2" role="group">
-                                <form action="{{ route('editar-lectura', ['id' => $l->id]) }}" method="GET">
-                                    @csrf
-                                    @method('UPDATE')
+                                <form action="" method="GET">
+                                    <!-- @csrf
+                                    @method('UPDATE') -->
                                     <button type="submit" class="btn btn-warning" data-toggle="tooltip" title="Editar">
                                         <i class="material-icons">border_color</i>
                                     </button>
                                 </form>
                             </div>
-                            <div class="btn-group me-2 my-2" role="group">
-                                <form action="{{ route('subir-actividad', ['id' => $l->id]) }}" method="GET">
-                                    @csrf
-                                    @method('GET')
-                                    <button type="submit" class="btn btn-primary" data-toggle="tooltip" title="Agregar actividad">
-                                        <i class="material-icons">bookmark_add</i>
-                                    </button>
-                                </form>
-                            </div>
                             <div class="btn-group me-2" role="group">
-                                <form action="{{ route('eliminar-lectura', ['id' => $l->id]) }}" method="POST" onsubmit="return confirm('¿Está seguro de que desea eliminar la lectura?')">
-                                    @csrf
-                                    @method('DELETE')
+                                <form action="" method="POST" onsubmit="return confirm('¿Está seguro de que desea eliminar la actividad?')">
+                                    <!-- @csrf
+                                    @method('DELETE') -->
                                     <button type="submit" class="btn btn-danger" data-toggle="tooltip" title="Eliminar">
                                         <i class="material-icons">delete</i>
                                     </button>
@@ -69,7 +56,6 @@
                             </div>
                         </td>
                     </tr>
-                    @endforeach
                 </tbody>
             </table>
         </div>
@@ -91,7 +77,7 @@
         @endif
 
         <!-- Botón flotante -->
-        <button id="btn-float" class="btn btn-primary btn-float" data-toggle="tooltip" title="Agregar lectura">
+        <button id="btn-float" class="btn btn-primary btn-float" data-toggle="tooltip" title="Subir actividad">
             <span class="icon">
                 <i class="material-icons">add</i>
             </span>
@@ -103,13 +89,31 @@
                 <span class="close">
                     <i class="material-icons">cancel</i>
                 </span>
-                <h4 class="card-title">Crear lectura</h4>
-                <x-subirlectura />
+                <h4 class="card-title">Subir actividad</h4>
+                <form method="POST" action="/lectura/{{ $lectura->id }}/actividad/registrar" class="form" enctype="multipart/form-data">
+                    @csrf
+                    <input type="hidden" name="lectura_id" value="{{ $lectura->id }}">
+                    <input type="text" name="nombre" class="form-control" id="file-name-input" placeholder="Nombre de la actividad" required>
+                    <label for="image-upload-input" class="file-upload">
+                        <p>Arrastra y suelta tu imagen</p>
+                        <span class="image-upload-name"></span>
+                    </label>
+                    <input type="file" name="imagen" accept=".jpg, .jpeg, .png, .svg" id="image-upload-input" class="file-upload-input" required>
+                    <label for="file-upload-input" class="file-upload">
+                        <p>Arrastra y suelta tu archivo</p>
+                        <span class="file-upload-name"></span>
+                    </label>
+                    <input type="file" name="archivo" accept=".zip" id="file-upload-input" class="file-upload-input" required>
+                    <div class="btn-upload">
+                        <button class="boton btn btn-primary" type="submit">Subir actividad</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
 
     <script src="{{ asset('js/botonflotante.js') }}"></script>
+    <script src="{{ asset('js/subiractividad.js') }}"></script>
     <script>
         $(function() {
             $('[data-toggle="tooltip"]').tooltip()

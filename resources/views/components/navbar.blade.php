@@ -21,7 +21,7 @@
         <li class="{{ Request::is('lectura') ? 'active' : '' }}">
             <a href="{{ route('lectura') }}">
                 <span class="icon">
-                    <ion-icon name="cloud-upload-outline"></ion-icon>
+                    <ion-icon name="book-outline"></ion-icon>
                 </span>
                 <span id="ocultar" class="title">Lecturas</span>
             </a>
