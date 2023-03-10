@@ -47,10 +47,10 @@
                                     </form>
                                 </div>
                                 <div class="btn-group me-2" role="group">
-                                    <form action="" method="POST"
+                                    <form action="{{ route('eliminar-actividad', ['id' => $actividad->id]) }}" method="POST"
                                         onsubmit="return confirm('¿Está seguro de que desea eliminar la actividad?')">
-                                        <!-- @csrf
-                                    @method('DELETE') -->
+                                    @csrf
+                                    @method('DELETE')
                                         <button type="submit" class="btn btn-danger" data-toggle="tooltip"
                                             title="Eliminar">
                                             <i class="material-icons">delete</i>

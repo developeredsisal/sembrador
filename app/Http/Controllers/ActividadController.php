@@ -57,6 +57,18 @@ class ActividadController extends Controller
         }
     }
 
+    public function eliminarActividad($id)
+    {
+        $actividad = Actividad::find($id);
+
+        if($actividad) {
+            $actividad->delete();
+            return redirect()->back()->with('success', 'La actividad se ha eliminado exitosamente.');
+        } else {
+            return redirect()->back()->with('error', 'No se ha podido eliminar la actividad.');
+        }
+    }
+
     public function mostrarActividades($id) {
         $lectura = Lectura::findOrFail($id);
         $actividades = $lectura->actividades;

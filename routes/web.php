@@ -15,6 +15,7 @@ Route::group(['middleware' => 'App\Http\Middleware\AuthAdmin'], function () {
     Route::get('lectura/{id}/editar', [LecturaController::class, 'editarLectura'])->name('editar-lectura');
 
     Route::delete('/lectura/{id}', [LecturaController::class, 'eliminar'])->name('eliminar-lectura');
+    Route::delete('/actividad/{id}', [ActividadController::class, 'eliminarActividad'])->name('eliminar-actividad');
 
     Route::post('/registrar-lectura', [LecturaController::class, 'registrar'])->name('registrar-lectura');
     Route::post('/lectura/{id}/actividad/registrar', [ActividadController::class, 'registrarActividad'])->name('registrar-actividad');
