@@ -56,13 +56,6 @@ class ActividadController extends Controller
         }
     }
 
-    public function editarActividad($id)
-    {
-        $actividad = Actividad::find($id);
-        $lectura = $actividad->lectura;
-        return view('editar-actividad', compact('lectura', 'actividad'));
-    }
-
     public function eliminarActividad($id)
     {
         $actividad = Actividad::find($id);
