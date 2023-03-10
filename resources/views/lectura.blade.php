@@ -33,61 +33,66 @@
                 <tbody>
                     <?php $c = 1; ?>
                     @foreach ($lecturas as $l)
-                    <tr>
-                        <td>{{ $c++ }}</td>
-                        <td data-label="Nombre">{{ $l->nombre }}</td>
-                        <td data-label="Tiempo">{{ $l->tiempo }} min</td>
-                        <td data-label="Grado">{{ $l->grado_nombre }}</td>
-                        <td data-label="Imagen"><img class="imagen" src="{{ URL::to('/') . '/lecturas/' . $l->id . '/' . $l->imagen }}"></td>
-                        <td data-label="Acciones">
-                            <div class="btn-group me-2" role="group">
-                                <form action="{{ route('editar-lectura', ['id' => $l->id]) }}" method="GET">
-                                    @csrf
-                                    @method('UPDATE')
-                                    <button type="submit" class="btn btn-warning" data-toggle="tooltip" title="Editar">
-                                        <i class="material-icons">border_color</i>
-                                    </button>
-                                </form>
-                            </div>
-                            <div class="btn-group me-2 my-2" role="group">
-                                <form action="{{ route('subir-actividad', ['id' => $l->id]) }}" method="GET">
-                                    @csrf
-                                    @method('GET')
-                                    <button type="submit" class="btn btn-primary" data-toggle="tooltip" title="Agregar actividad">
-                                        <i class="material-icons">bookmark_add</i>
-                                    </button>
-                                </form>
-                            </div>
-                            <div class="btn-group me-2" role="group">
-                                <form action="{{ route('eliminar-lectura', ['id' => $l->id]) }}" method="POST" onsubmit="return confirm('¿Está seguro de que desea eliminar la lectura?')">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-danger" data-toggle="tooltip" title="Eliminar">
-                                        <i class="material-icons">delete</i>
-                                    </button>
-                                </form>
-                            </div>
-                        </td>
-                    </tr>
+                        <tr>
+                            <td>{{ $c++ }}</td>
+                            <td data-label="Nombre">{{ $l->nombre }}</td>
+                            <td data-label="Tiempo">{{ $l->tiempo }} min</td>
+                            <td data-label="Grado">{{ $l->grado_nombre }}</td>
+                            <td data-label="Imagen"><img class="imagen"
+                                    src="{{ URL::to('/') . '/lecturas/' . $l->id . '/' . $l->imagen }}"></td>
+                            <td data-label="Acciones">
+                                <div class="btn-group me-2" role="group">
+                                    <form action="{{ route('editar-lectura', ['id' => $l->id]) }}" method="GET">
+                                        @csrf
+                                        @method('UPDATE')
+                                        <button type="submit" class="btn btn-warning" data-toggle="tooltip"
+                                            title="Editar">
+                                            <i class="material-icons">border_color</i>
+                                        </button>
+                                    </form>
+                                </div>
+                                <div class="btn-group me-2 my-2" role="group">
+                                    <form action="{{ route('subir-actividad', ['id' => $l->id]) }}" method="GET">
+                                        @csrf
+                                        @method('GET')
+                                        <button type="submit" class="btn btn-primary" data-toggle="tooltip"
+                                            title="Agregar actividad">
+                                            <i class="material-icons">bookmark_add</i>
+                                        </button>
+                                    </form>
+                                </div>
+                                <div class="btn-group me-2" role="group">
+                                    <form action="{{ route('eliminar-lectura', ['id' => $l->id]) }}" method="POST"
+                                        onsubmit="return confirm('¿Está seguro de que desea eliminar la lectura?')">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger" data-toggle="tooltip"
+                                            title="Eliminar">
+                                            <i class="material-icons">delete</i>
+                                        </button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
                     @endforeach
                 </tbody>
             </table>
         </div>
 
         @if (session('success'))
-        <div id="ocultar2" class="notificacion">
-            <div class="alert alert-success alert-dismissible fade show alert-custom" role="alert">
-                {{ session('success') }}
+            <div id="ocultar2" class="notificacion">
+                <div class="alert alert-success fade show alert-custom" role="alert">
+                    {{ session('success') }}
+                </div>
             </div>
-        </div>
         @endif
 
         @if (session('error'))
-        <div id="ocultar2" class="notificacion">
-            <div class="alert alert-danger alert-dismissible fade show alert-custom" role="alert">
-                {{ session('error') }}
+            <div id="ocultar2" class="notificacion">
+                <div class="alert alert-danger fade show alert-custom" role="alert">
+                    {{ session('error') }}
+                </div>
             </div>
-        </div>
         @endif
 
         <!-- Botón flotante -->
@@ -110,16 +115,16 @@
     </div>
 
     <script src="{{ asset('js/botonflotante.js') }}"></script>
+    <x-foot />
     <script>
         $(function() {
-            $('[data-toggle="tooltip"]').tooltip()
-        })
+            $('[data-toggle="tooltip"]').tooltip();
+        });
 
         setTimeout(function() {
             document.querySelector('.alert').classList.add('d-none');
-        }, 5000);
+        }, 4000);
     </script>
-    <x-foot />
 </body>
 
 </html>

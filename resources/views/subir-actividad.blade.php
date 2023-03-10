@@ -122,6 +122,7 @@
 
     <script src="{{ asset('js/botonflotante.js') }}"></script>
     <script src="{{ asset('js/subiractividad.js') }}"></script>
+    <x-foot />
     <script>
         $(function() {
             $('[data-toggle="tooltip"]').tooltip()
@@ -129,9 +130,8 @@
 
         setTimeout(function() {
             document.querySelector('.alert').classList.add('d-none');
-        }, 5000);
+        }, 4000);
     </script>
-    <x-foot />
 </body>
 
 </html>
