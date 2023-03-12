@@ -24,7 +24,7 @@ Route::group(['middleware' => 'App\Http\Middleware\AuthAdmin'], function () {
 });
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/inicio', [LecturaController::class, 'todasLecturas'])->name('inicio');
+    Route::get('/inicio', [LecturaController::class, 'mostrarLecturasConActividades'])->name('inicio');
     Route::get('/lectura', [LecturaController::class, 'lecturas'])->name('lectura');
     Route::get('/actividad/{id}', [ActividadController::class, 'actividad'])->name('actividad');
 

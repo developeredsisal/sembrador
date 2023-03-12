@@ -118,11 +118,13 @@ class LecturaController extends Controller
         return view('lectura', ['lecturas' => $lecturas]);
     }
 
-    public function todasLecturas()
+    public function mostrarLecturasConActividades()
     {
-        $lecturas = Lectura::join('grado', 'lectura.grado_id', '=', 'grado.id')
-            ->select('lectura.id AS id', 'lectura.nombre AS nombre', 'lectura.tiempo AS tiempo', 'lectura.imagen AS imagen', 'grado.id AS grado_id', 'grado.nombre AS grado_nombre')
+        $lecturas = Lectura::with('actividades')
+            ->join('grado', 'lectura.grado_id', '=', 'grado.id')
+            ->select('lectura.id', 'lectura.nombre', 'lectura.tiempo', 'lectura.imagen', 'grado.nombre as grado_nombre')
             ->orderBy('id')->get();
-        return view('inicio', ['lecturas' => $lecturas]);
-    }
+    
+        return view('inicio', compact('lecturas'));
+    }    
 }

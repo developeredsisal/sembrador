@@ -27,7 +27,7 @@
                     </div>
                     <div class="grado">{{ $l->grado_nombre }}</div>
                     <div class="nombre">{{ $l->nombre }}</div>
-                    <button type="button" class="btn btn-outline-primary">Ver actividades</button>
+                    <a class="btn btn-primary" href="" role="button">Ver actividades</a>
                 </div>
             @endforeach
         </div>
