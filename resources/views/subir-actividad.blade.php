@@ -39,6 +39,15 @@
                             </td>
                             <td data-label="Acciones">
                                 <div class="btn-group me-2" role="group">
+                                    <form action="{{ url('actividad/' . $actividad->id) }}" method="GET">
+                                        @csrf
+                                        <button type="submit" class="btn btn-primary" data-toggle="tooltip"
+                                            title="Ver">
+                                            <i class="material-icons">visibility</i>
+                                        </button>
+                                    </form>
+                                </div>
+                                <div class="btn-group me-2" role="group">
                                     <form
                                         action="{{ route('editar-actividad', ['lectura_id' => $actividad->lectura_id, 'actividad_id' => $actividad->id]) }}"
                                         method="GET">
@@ -118,7 +127,7 @@
                     <input type="file" name="archivo" accept=".zip" id="file-upload-input" class="file-upload-input"
                         required>
                     <div class="btn-upload">
-                        <button class="boton btn btn-primary" type="submit">Subir actividad</button>
+                        <button class="boton btn btn-primary" type="submit">Guardar</button>
                     </div>
                 </form>
             </div>

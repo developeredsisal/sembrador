@@ -6,8 +6,8 @@
 }
 
 :root {
-    --primary-color: #142D55;
-    --secondary-color: #4B92FF;
+    --primary-color: #142d55;
+    --secondary-color: #4b92ff;
     --background-login: linear-gradient(
         to right top,
         #0b4e93,
@@ -165,6 +165,7 @@ body {
 
 .card-title {
     font-weight: 700;
+    text-align: center;
 }
 
 .alert-custom {

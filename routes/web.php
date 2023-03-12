@@ -11,7 +11,6 @@ Route::group(['middleware' => 'App\Http\Middleware\AuthAdmin'], function () {
     Route::get('lectura/{id}/actividad', [ActividadController::class, 'subir'])->name('subir-actividad');
     Route::get('/lectura/{id}/actividades', [ActividadController::class, 'mostrarActividades'])->name('subir-actividad');
 
-
     Route::get('lectura/{id}/editar', [LecturaController::class, 'editarLectura'])->name('editar-lectura');
     Route::get('/lecturas/{lectura_id}/actividades/{actividad_id}/editar', [ActividadController::class, 'editarActividad'])->name('editar-actividad');
 
@@ -27,6 +26,8 @@ Route::group(['middleware' => 'App\Http\Middleware\AuthAdmin'], function () {
 Route::middleware(['auth'])->group(function () {
     Route::get('/inicio', [LecturaController::class, 'todasLecturas'])->name('inicio');
     Route::get('/lectura', [LecturaController::class, 'lecturas'])->name('lectura');
+    Route::get('/actividad/{id}', [ActividadController::class, 'actividad'])->name('actividad');
+
 
     Route::get('/cerrar-sesion', [LoginController::class, 'logout'])->name('cerrar-sesion');
 });

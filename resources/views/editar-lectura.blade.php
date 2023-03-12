@@ -50,7 +50,7 @@
                             <div class="form-group">
                                 <label for="imagen" class="col-form-label">{{ __('Imagen') }}</label>
                                 <input type="file" name="imagen" id="imagen" class="form-control">
-                                <small class="form-text text-muted">Selecciona una nueva imagen para actualizar la imagen actual.</small>
+                                <small class="form-text text-muted">Selecciona una nueva imagen para actualizar la imagen actual, el tamaño recomendado es de 500 x 388 pixeles.</small>
                             </div>
                             <div class="py-3">
                                 <a class="a" href="{{ route('lectura') }}">

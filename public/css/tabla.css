@@ -16,6 +16,12 @@
     --bs-btn-active-color: #fff;
 }
 
+.btn-info {
+    --bs-btn-color: #fff;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-active-color: #fff;
+}
+
 table {
     border-collapse: collapse;
     width: 100%;

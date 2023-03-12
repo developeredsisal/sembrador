@@ -112,7 +112,7 @@ class LecturaController extends Controller
 
     public function lecturas()
     {
-        $lecturas = DB::table('lectura')->join('grado', 'lectura.grado_id', '=', 'grado.id')
+        $lecturas = Lectura::join('grado', 'lectura.grado_id', '=', 'grado.id')
             ->select('lectura.id AS id', 'lectura.nombre AS nombre', 'lectura.tiempo AS tiempo', 'lectura.imagen AS imagen', 'grado.id AS grado_id', 'grado.nombre AS grado_nombre')
             ->orderBy('id')->get();
         return view('lectura', ['lecturas' => $lecturas]);
@@ -120,7 +120,7 @@ class LecturaController extends Controller
 
     public function todasLecturas()
     {
-        $lecturas = DB::table('lectura')->join('grado', 'lectura.grado_id', '=', 'grado.id')
+        $lecturas = Lectura::join('grado', 'lectura.grado_id', '=', 'grado.id')
             ->select('lectura.id AS id', 'lectura.nombre AS nombre', 'lectura.tiempo AS tiempo', 'lectura.imagen AS imagen', 'grado.id AS grado_id', 'grado.nombre AS grado_nombre')
             ->orderBy('id')->get();
         return view('inicio', ['lecturas' => $lecturas]);

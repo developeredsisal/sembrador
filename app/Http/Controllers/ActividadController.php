@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Actividad;
 use App\Models\Lectura;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use ZipArchive;
 
@@ -75,7 +76,11 @@ class ActividadController extends Controller
         }
     }
 
-
+    public function actividad($id)
+    {
+        $actividad = DB::table('actividad')->where('id', '=', $id)->get()->toArray();
+        return view('ver-actividad', ['actividad' => $actividad]);
+    }
 
     public function mostrarActividades($id)
     {

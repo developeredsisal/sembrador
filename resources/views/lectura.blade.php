@@ -13,34 +13,30 @@
         <x-appbar />
 
         <div class="container-fluid">
-            <div class="card-header">
-                <h2 class="role">Lecturas</h2>
-            </div>
+            <h2 class="role">Lecturas</h2>
         </div>
 
         <div class="table-responsive">
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th scope="col">#</th>
+                        <th scope="col" class="text-center">#</th>
                         <th scope="col">Nombre</th>
-                        <th scope="col">Tiempo</th>
                         <th scope="col">Grado</th>
                         <th scope="col">Imagen</th>
-                        <th scope="col">Acciones</th>
+                        <th scope="col" class="text-center">Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php $c = 1; ?>
                     @foreach ($lecturas as $l)
                         <tr>
-                            <td>{{ $c++ }}</td>
+                            <td class="text-center">{{ $c++ }}</td>
                             <td data-label="Nombre">{{ $l->nombre }}</td>
-                            <td data-label="Tiempo">{{ $l->tiempo }} min</td>
                             <td data-label="Grado">{{ $l->grado_nombre }}</td>
                             <td data-label="Imagen"><img class="imagen"
                                     src="{{ URL::to('/') . '/lecturas/' . $l->id . '/' . $l->imagen }}"></td>
-                            <td data-label="Acciones">
+                            <td data-label="Acciones" class="text-center">
                                 <div class="btn-group me-2" role="group">
                                     <form action="{{ route('editar-lectura', ['id' => $l->id]) }}" method="GET">
                                         @csrf
@@ -55,8 +51,8 @@
                                     <form action="{{ route('subir-actividad', ['id' => $l->id]) }}" method="GET">
                                         @csrf
                                         @method('GET')
-                                        <button type="submit" class="btn btn-primary" data-toggle="tooltip"
-                                            title="Agregar actividad">
+                                        <button type="submit" class="btn btn-info" data-toggle="tooltip"
+                                            title="Actividades">
                                             <i class="material-icons">bookmark_add</i>
                                         </button>
                                     </form>
