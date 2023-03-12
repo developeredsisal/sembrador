@@ -22,7 +22,7 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th scope="col">#</th>
+                        <th scope="col" class="text-center">#</th>
                         <th scope="col">Nombre</th>
                         <th scope="col">Imagen</th>
                         <th scope="col">Acciones</th>
@@ -32,7 +32,7 @@
                     <?php $c = 1; ?>
                     @foreach ($actividades as $actividad)
                         <tr>
-                            <td>{{ $c++ }}</td>
+                            <td class="text-center">{{ $c++ }}</td>
                             <td data-label="Nombre">{{ $actividad->nombre }}</td>
                             <td data-label="Imagen"><img class="imagen"
                                     src="{{ URL::to('/') . '/actividades/' . $actividad->id . '/' . $actividad->imagen }}">
