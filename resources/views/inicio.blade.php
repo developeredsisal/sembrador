@@ -16,20 +16,20 @@
             <div class="card-header">
                 <h2 class="role">Lecturas Sembrador Escolar</h2>
             </div>
-        </div>
-
-        <div class="container">
-            @foreach ($lecturas as $l)
-                <div class="card">
-                    <div class="card-image">
-                        <img style="width: 100%" src="{{ URL::to('/') . '/lecturas/' . $l->id . '/' . $l->imagen }}"
-                            alt="">
+            <div class="card-container">
+                @foreach ($lecturas as $l)
+                    <div class="card">
+                        <div class="card-image">
+                            <img style="width: 100%" src="{{ URL::to('/') . '/lecturas/' . $l->id . '/' . $l->imagen }}"
+                                alt="">
+                        </div>
+                        <div class="grado">{{ $l->grado_nombre }}</div>
+                        <div class="nombre">{{ $l->nombre }}</div>
+                        <a class="btn btn-primary" href="{{ route('ver-actividades', ['id' => $l->id]) }}"
+                            role="button">Ver actividades</a>
                     </div>
-                    <div class="grado">{{ $l->grado_nombre }}</div>
-                    <div class="nombre">{{ $l->nombre }}</div>
-                    <a class="btn btn-primary" href="" role="button">Ver actividades</a>
-                </div>
-            @endforeach
+                @endforeach
+            </div>
         </div>
     </div>
     <x-foot />

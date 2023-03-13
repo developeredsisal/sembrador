@@ -126,5 +126,12 @@ class LecturaController extends Controller
             ->orderBy('id')->get();
     
         return view('inicio', compact('lecturas'));
-    }    
+    }
+    
+    public function verActividades($id)
+    {
+        $lectura = Lectura::findOrFail($id);
+        $actividades = $lectura->actividades;
+        return view('ver-actividades', compact('lectura', 'actividades'));
+    }
 }
