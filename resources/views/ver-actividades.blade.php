@@ -14,7 +14,7 @@
 
         <div class="container-fluid">
             <div class="card-header">
-                <h2 class="role">Actividades de la lectura: "{{ $lectura->nombre }}"</h2>
+                <h2 class="role text-center">Actividades de la lectura: "{{ $lectura->nombre }}"</h2>
             </div>
             <div class="card-container">
                 @foreach ($actividades as $actividad)

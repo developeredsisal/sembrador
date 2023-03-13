@@ -14,7 +14,7 @@
 
         <div class="container-fluid">
             <div class="card-header">
-                <h2 class="role">Lecturas Sembrador Escolar</h2>
+                <h2 class="role text-center">Lecturas Sembrador Escolar</h2>
             </div>
             <div class="card-container">
                 @foreach ($lecturas as $l)
